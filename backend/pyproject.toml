@@ -4,4 +4,12 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = ["fastapi[standard]>=0.128.0"]
+
+
+[tool.pyright]
+venvPath = ".devenv/state"
+venv = "venv"
+include = ["**/*.py"]
+exclude = ["**/node_modules", "**/__pycache__"]
+pythonVersion = "3.13"

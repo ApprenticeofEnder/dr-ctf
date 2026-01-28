@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   env = {
     API_PORT = 8000;
     SERVICE_NAME = "dr-ctf-api";
@@ -14,7 +14,15 @@
   };
 
   git-hooks.hooks = {
-    pyright.enable = true;
+    pyright = {
+      enable = true;
+      args = [
+        "--project"
+        config.devenv.root
+        "--venvpath"
+        "${config.devenv.root}/.devenv/state"
+      ];
+    };
     ruff.enable = true;
     ruff-format.enable = true;
     uv-check.enable = true;
