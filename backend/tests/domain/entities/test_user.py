@@ -1,9 +1,14 @@
+from faker import Faker
+
 from dr_ctf.domain.entities.user import User
 
 
-def test_user_creation():
-    user = User(email="test@test.com", name="Test User")
-    assert user.email == "test@test.com"
+def test_user_creation(faker: Faker):
+    email = faker.email()
+    name = faker.name()
+
+    user = User(email=email, name=name)
+    assert user.email == email
 
 
 # class User(BaseObject):

@@ -4,11 +4,10 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
-    "fastapi[standard]>=0.128.0",
-    "paramiko>=4.0.0",
-]
+dependencies = ["fastapi[standard]>=0.128.0", "paramiko>=4.0.0"]
 
+[dependency-groups]
+dev = ["faker>=40.4.0", "pytest>=9.0.2"]
 
 [tool.pyright]
 venvPath = ".devenv/state"
@@ -17,7 +16,19 @@ include = ["**/*.py"]
 exclude = ["**/node_modules", "**/__pycache__"]
 pythonVersion = "3.13"
 
-[dependency-groups]
-dev = [
-    "pytest>=9.0.2",
-]
+[tool.ruff]
+indent-width = 4
+line-length = 80
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+
+[tool.ruff.lint]
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+extend-select = ["E501"]
+select = ["E", "F", "UP", "B", "SIM", "I", "S", "FAST"]
+ignore = ["S101"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["dr_ctf", "tests"]
