@@ -19,9 +19,10 @@ class Probe(BaseObject, ABC):
 
 
 class HttpProbe(Probe):
+    probe_type: ProbeType = ProbeType.HTTP
     port: Port
     endpoint: str
-    expected_status_code: HTTPStatus
+    expected_status_code: HTTPStatus = HTTPStatus.OK
 
 
 # class TcpProbe(Probe):

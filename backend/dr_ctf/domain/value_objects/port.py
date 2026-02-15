@@ -10,16 +10,16 @@ class Port(BaseModel):
     description: str
 
 
-class HttpPort(BaseModel):
+class HttpPort(Port):
     value: PortValue = 80
     description: str = "HTTP"
 
 
-class HttpsPort(BaseModel):
+class HttpsPort(Port):
     value: PortValue = 443
     description: str = "HTTPS"
 
 
-class SshPort(BaseModel):
+class SshPort(Port):
     value: PortValue = 22
     description: str = "SSH"
