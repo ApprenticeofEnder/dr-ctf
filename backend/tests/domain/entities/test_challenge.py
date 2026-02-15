@@ -2,10 +2,9 @@ from ipaddress import IPv4Address
 
 from faker import Faker
 
-from dr_ctf.domain.entities.challenge import Challenge
-from dr_ctf.domain.entities.user import User
-from dr_ctf.domain.enumerators.challenge_category import ChallengeCategory
-from dr_ctf.domain.value_objects.port import HttpPort, HttpsPort
+from dr_ctf.domain.entities import Challenge, User
+from dr_ctf.domain.enumerators import ChallengeCategory
+from dr_ctf.domain.value_objects import HttpPort, HttpsPort
 
 
 def test_challenge_creation(faker: Faker, user: User):

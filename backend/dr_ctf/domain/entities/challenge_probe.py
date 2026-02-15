@@ -3,7 +3,7 @@ from pydantic import computed_field
 from dr_ctf.domain.entities.base_object import BaseObject
 from dr_ctf.domain.entities.cyber_range import CyberRange
 from dr_ctf.domain.entities.probe import Probe
-from dr_ctf.domain.enumerators.challenge_status import ChallengeStatus
+from dr_ctf.domain.enumerators import ChallengeStatus
 
 
 class ChallengeProbe(BaseObject):

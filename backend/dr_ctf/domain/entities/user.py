@@ -1,5 +1,5 @@
 from dr_ctf.domain.entities.base_object import BaseObject
-from dr_ctf.domain.value_objects.ssh_public_key import SshPublicKey
+from dr_ctf.domain.value_objects import SshPublicKey
 
 
 class User(BaseObject):

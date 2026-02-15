@@ -2,8 +2,8 @@ from pydantic import IPvAnyAddress
 
 from dr_ctf.domain.entities.base_object import BaseObject
 from dr_ctf.domain.entities.user import User
-from dr_ctf.domain.enumerators.challenge_category import ChallengeCategory
-from dr_ctf.domain.value_objects.port import Port, SshPort
+from dr_ctf.domain.enumerators import ChallengeCategory
+from dr_ctf.domain.value_objects import Port, SshPort
 
 
 class Challenge(BaseObject):

@@ -1,6 +1,6 @@
 from faker import Faker
 
-from dr_ctf.domain.entities.user import User
+from dr_ctf.domain.entities import User
 
 
 def test_user_creation(faker: Faker):

@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 from dr_ctf.domain.entities.base_object import BaseObject
 from dr_ctf.domain.entities.challenge import Challenge
-from dr_ctf.domain.enumerators.probe_type import ProbeType
+from dr_ctf.domain.enumerators import ProbeType
 
 
 class Probe(BaseObject, ABC):
