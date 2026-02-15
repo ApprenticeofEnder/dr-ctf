@@ -16,3 +16,8 @@ venv = "venv"
 include = ["**/*.py"]
 exclude = ["**/node_modules", "**/__pycache__"]
 pythonVersion = "3.13"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
