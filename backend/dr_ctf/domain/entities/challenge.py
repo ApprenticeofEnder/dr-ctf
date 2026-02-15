@@ -1,10 +1,9 @@
-from typing import Annotated
-
-from pydantic import Field, IPvAnyAddress
+from pydantic import IPvAnyAddress
 
 from dr_ctf.domain.entities.base_object import BaseObject
 from dr_ctf.domain.entities.user import User
 from dr_ctf.domain.enumerators.challenge_category import ChallengeCategory
+from dr_ctf.domain.value_objects.port import Port
 
 
 class Challenge(BaseObject):
@@ -12,5 +11,5 @@ class Challenge(BaseObject):
     category: ChallengeCategory
     author: User
     ip: IPvAnyAddress
-    port: Annotated[int, Field(gt=0, lt=65536)] | None
-    ssh_port: Annotated[int, Field(gt=0, lt=65536)] | None
+    ports: list[Port] | None
+    ssh_port: Port | None
