@@ -1,13 +1,12 @@
 from abc import ABC, abstractmethod
 from typing import TypeVar
-from uuid import UUID
 
 T = TypeVar("T")
 
 
 class IBaseRepository[T](ABC):
     @abstractmethod
-    async def get_by_id(self, id: UUID) -> T | None:
+    async def get_by_id(self, id: str) -> T | None:
         pass
 
     @abstractmethod

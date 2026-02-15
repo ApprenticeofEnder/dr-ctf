@@ -1,5 +1,4 @@
 from abc import abstractmethod
-from uuid import UUID
 
 from dr_ctf.domain.entities.probe import Probe
 from dr_ctf.domain.enumerators.challenge_status import ChallengeStatus
@@ -8,7 +7,7 @@ from dr_ctf.domain.repositories.base_repository import IBaseRepository
 
 class IProbeRepository(IBaseRepository[Probe]):
     @abstractmethod
-    async def list_by_challenge(self, challenge_id: UUID) -> list[Probe]:
+    async def list_by_challenge(self, challenge_id: str) -> list[Probe]:
         pass
 
     @abstractmethod

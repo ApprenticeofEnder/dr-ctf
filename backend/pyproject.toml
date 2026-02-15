@@ -4,7 +4,11 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = ["fastapi[standard]>=0.128.0", "paramiko>=4.0.0"]
+dependencies = [
+    "cuid2>=2.0.1",
+    "fastapi[standard]>=0.128.0",
+    "paramiko>=4.0.0",
+]
 
 [dependency-groups]
 dev = ["faker>=40.4.0", "pytest>=9.0.2"]
