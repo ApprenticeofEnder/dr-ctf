@@ -10,6 +10,7 @@ def test_user_creation(faker: Faker):
     user = User(email=email, name=name)
     assert user.email == email
     assert user.name == name
+    assert user.id is not None
 
 
 # class User(BaseObject):

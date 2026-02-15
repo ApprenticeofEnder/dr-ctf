@@ -30,6 +30,7 @@ def test_challenge_creation(faker: Faker):
     assert challenge.ports
     assert challenge.ports[0].value == 80
     assert challenge.ports[1].value == 443
+    assert challenge.id is not None
 
 
 # class Challenge(BaseObject):
