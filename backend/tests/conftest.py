@@ -1,5 +1,6 @@
 from ipaddress import IPv4Address
 
+import pytest
 from faker import Faker
 
 from dr_ctf.domain.entities.challenge import Challenge
@@ -8,7 +9,14 @@ from dr_ctf.domain.enumerators.challenge_category import ChallengeCategory
 from dr_ctf.domain.value_objects.port import HttpPort, HttpsPort
 
 
-def test_challenge_creation(faker: Faker, user: User):
+@pytest.fixture(name="user")
+def fixture_user(faker: Faker) -> User:
+    user = User(name=faker.name(), email=faker.email())
+    return user
+
+
+@pytest.fixture(name="challenge")
+def fixture_challenge(faker: Faker, user: User) -> Challenge:
     name = faker.text(max_nb_chars=80)
     author = user
     challenge_category = faker.random_element(ChallengeCategory)
@@ -21,12 +29,4 @@ def test_challenge_creation(faker: Faker, user: User):
         ip=ip,
         ports=ports,
     )
-
-    assert challenge.name == name
-    assert challenge.author == author
-    assert challenge.ip == ip
-    assert challenge.category == challenge_category
-    assert challenge.ports
-    assert challenge.ports[0].value == 80
-    assert challenge.ports[1].value == 443
-    assert challenge.id is not None
+    return challenge
