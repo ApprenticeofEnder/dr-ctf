@@ -12,4 +12,4 @@ class Challenge(BaseObject):
     author: User
     ip: IPvAnyAddress
     ports: list[Port] | None
-    ssh_port: SshPort | None
+    ssh_port: SshPort = SshPort()
