@@ -27,6 +27,7 @@ def test_challenge_creation(faker: Faker):
     assert challenge.name == name
     assert challenge.author == author
     assert challenge.ip == ip
+    assert challenge.category == challenge_category
     assert challenge.ports
     assert challenge.ports[0].value == 80
     assert challenge.ports[1].value == 443
