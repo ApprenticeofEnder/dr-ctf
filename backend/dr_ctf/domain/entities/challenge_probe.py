@@ -19,7 +19,7 @@ class ChallengeProbe(BaseObject):
 
     @computed_field
     def status(self) -> ChallengeStatus:
-        if self.failed_checks > 3:
+        if self.failed_checks >= 3:
             return ChallengeStatus.DOWN
         if self.failed_checks == 0:
             return ChallengeStatus.HEALTHY
