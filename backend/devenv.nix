@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   env = {
     API_PORT = 8000;
     SERVICE_NAME = "dr-ctf-api";
@@ -16,6 +20,7 @@
   git-hooks.hooks = {
     pyright = {
       enable = true;
+      package = pkgs.basedpyright;
       args = [
         "--project"
         config.devenv.root
