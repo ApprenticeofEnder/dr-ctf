@@ -1,4 +1,4 @@
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 from uuid import UUID
 
 from dr_ctf.domain.entities.challenge_probe import ChallengeProbe
@@ -6,7 +6,7 @@ from dr_ctf.domain.enumerators.challenge_status import ChallengeStatus
 from dr_ctf.domain.repositories.base_repository import IBaseRepository
 
 
-class IChallengeProbeRepository(IBaseRepository[ChallengeProbe]):
+class IChallengeProbeRepository(IBaseRepository[ChallengeProbe], ABC):
     @abstractmethod
     async def get_by_name(self, name: str) -> ChallengeProbe | None:
         pass

@@ -3,6 +3,8 @@ from dr_ctf.domain.entities import User
 
 
 class UserService:
+    _uow: IUnitOfWork
+
     def __init__(self, uow: IUnitOfWork):
         self._uow = uow
 

@@ -6,7 +6,7 @@ from faker import Faker
 from dr_ctf.domain.entities.challenge import Challenge
 from dr_ctf.domain.entities.user import User
 from dr_ctf.domain.enumerators.challenge_category import ChallengeCategory
-from dr_ctf.domain.value_objects.port import HttpPort, HttpsPort
+from dr_ctf.domain.value_objects.port import HttpPort, HttpsPort, Port
 
 
 @pytest.fixture(name="user")
@@ -21,7 +21,7 @@ def fixture_challenge(faker: Faker, user: User) -> Challenge:
     author = user
     challenge_category = faker.random_element(ChallengeCategory)
     ip = IPv4Address(faker.ipv4())
-    ports = [HttpPort(), HttpsPort()]
+    ports: list[Port] = [HttpPort(), HttpsPort()]
     challenge = Challenge(
         name=name,
         author=author,

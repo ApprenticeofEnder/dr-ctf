@@ -1,11 +1,11 @@
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 
 from dr_ctf.domain.entities.probe import Probe
 from dr_ctf.domain.enumerators.challenge_status import ChallengeStatus
 from dr_ctf.domain.repositories.base_repository import IBaseRepository
 
 
-class IProbeRepository(IBaseRepository[Probe]):
+class IProbeRepository(IBaseRepository[Probe], ABC):
     @abstractmethod
     async def list_by_challenge(self, challenge_id: str) -> list[Probe]:
         pass

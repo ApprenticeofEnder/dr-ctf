@@ -7,6 +7,8 @@ from dr_ctf.domain.value_objects import Port, SshPort
 
 
 class ChallengeService:
+    _uow: IUnitOfWork
+
     def __init__(self, uow: IUnitOfWork):
         self._uow = uow
 

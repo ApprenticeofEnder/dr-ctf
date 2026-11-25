@@ -1,4 +1,4 @@
-from pydantic import IPvAnyAddress
+from pydantic import Field, IPvAnyAddress
 
 from dr_ctf.domain.entities.base_object import BaseObject
 from dr_ctf.domain.entities.user import User
@@ -12,4 +12,4 @@ class Challenge(BaseObject):
     author: User
     ip: IPvAnyAddress
     ports: list[Port] | None
-    ssh_port: SshPort | None
+    ssh_port: SshPort = Field(default_factory=SshPort)

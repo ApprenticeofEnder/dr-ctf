@@ -4,8 +4,7 @@ from faker import Faker
 
 from dr_ctf.domain.entities import Challenge, User
 from dr_ctf.domain.enumerators import ChallengeCategory
-from dr_ctf.domain.value_objects import HttpPort, HttpsPort
-from dr_ctf.domain.value_objects.port import SshPort
+from dr_ctf.domain.value_objects import HttpPort, HttpsPort, Port, SshPort
 
 
 def test_challenge_creation(faker: Faker, user: User):
@@ -13,7 +12,7 @@ def test_challenge_creation(faker: Faker, user: User):
     author = user
     challenge_category = faker.random_element(ChallengeCategory)
     ip = IPv4Address(faker.ipv4())
-    ports = [HttpPort(), HttpsPort()]
+    ports: list[Port] = [HttpPort(), HttpsPort()]
     challenge = Challenge(
         name=name,
         author=author,
