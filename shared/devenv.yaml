@@ -6,3 +6,5 @@ inputs:
         follows: nixpkgs
   nixpkgs:
     url: github:cachix/devenv-nixpkgs/rolling
+  nixpkgs-convco:
+    url: github:nixos/nixpkgs/b2433d29596bc700a008ba0c70aa1659e7595b0c
