@@ -28,8 +28,8 @@ class ChallengeService:
                 author=author,
                 ip=ip,
                 ports=ports,
-                ssh_port=ssh_port,
             )
+            challenge.ssh_port = ssh_port or challenge.ssh_port
             saved = await uow.challenges.save(challenge)
             await uow.commit()
             return saved

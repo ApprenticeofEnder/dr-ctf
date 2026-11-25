@@ -20,6 +20,7 @@
   git-hooks.hooks = {
     pyright = {
       enable = true;
+      entry = "basedpyright";
       package = pkgs.basedpyright;
       args = [
         "--project"
