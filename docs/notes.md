@@ -1,0 +1,1 @@
+- Look into using oauth providers for login, add relevant details to user model

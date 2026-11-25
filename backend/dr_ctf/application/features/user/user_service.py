@@ -8,9 +8,9 @@ class UserService:
     def __init__(self, uow: IUnitOfWork):
         self._uow = uow
 
-    async def create_user(self, name: str, email: str) -> User:
+    async def create_user(self, display_name: str, email: str) -> User:
         async with self._uow as uow:
-            user = User(name=name, email=email)
+            user = User(display_name=display_name, email=email)
             saved = await uow.users.save(user)
             await uow.commit()
             return saved

@@ -11,7 +11,7 @@ from dr_ctf.domain.value_objects.port import HttpPort, HttpsPort, Port
 
 @pytest.fixture(name="user")
 def fixture_user(faker: Faker) -> User:
-    user = User(name=faker.name(), email=faker.email())
+    user = User(display_name=faker.name(), email=faker.email())
     return user
 
 

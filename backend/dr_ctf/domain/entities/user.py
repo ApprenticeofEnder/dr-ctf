@@ -4,7 +4,8 @@ from dr_ctf.domain.value_objects import SshPublicKey
 
 class User(BaseObject):
     email: str
-    name: str
+    display_name: str
+
     public_key: SshPublicKey | None = None
 
     def add_public_key(self, new_key: SshPublicKey) -> bool:

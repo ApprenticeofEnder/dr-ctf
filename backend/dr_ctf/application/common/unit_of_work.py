@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import Any
 
 from dr_ctf.domain.repositories import (
     IChallengeProbeRepository,
@@ -21,7 +22,12 @@ class IUnitOfWork(ABC):
         return self
 
     @abstractmethod
-    async def __aexit__(self, *args):
+    async def __aexit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_val: BaseException | None,
+        exc_tb: Any,  # pyright:ignore[reportExplicitAny, reportAny]
+    ):
         pass
 
     @abstractmethod
