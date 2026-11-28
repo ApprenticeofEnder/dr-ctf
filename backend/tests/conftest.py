@@ -1,3 +1,4 @@
+from datetime import datetime
 from ipaddress import IPv4Address
 
 import pytest
@@ -15,6 +16,17 @@ def fixture_user(faker: Faker) -> User:
     return user
 
 
+@pytest.fixture(name="persisted_user")
+def fixture_persisted_user(user: User) -> User:
+    persisted_user = User(
+        **user.data_dump(),
+        id=user.id,
+        created_at=datetime.now(),
+        updated_at=datetime.now(),
+    )
+    return persisted_user
+
+
 @pytest.fixture(name="challenge")
 def fixture_challenge(faker: Faker, user: User) -> Challenge:
     name = faker.text(max_nb_chars=80)
@@ -30,3 +42,14 @@ def fixture_challenge(faker: Faker, user: User) -> Challenge:
         ports=ports,
     )
     return challenge
+
+
+@pytest.fixture(name="persisted_challenge")
+def fixture_persisted_challenge(challenge: Challenge) -> Challenge:
+    persisted_challenge = Challenge(
+        **challenge.data_dump(),
+        id=challenge.id,
+        created_at=datetime.now(),
+        updated_at=datetime.now(),
+    )
+    return persisted_challenge

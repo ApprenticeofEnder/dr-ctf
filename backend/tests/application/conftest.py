@@ -1,3 +1,4 @@
+from typing import Any
 from unittest.mock import create_autospec
 
 import pytest
@@ -17,3 +18,15 @@ def fixture_mock_uow():
     mock_uow_context.challenges = mock_challenge_repo
 
     return mock_uow
+
+
+@pytest.fixture(name="mock_user_repo")
+def fixture_mock_user_repo(mock_uow: Any):
+    mock_user_repo = mock_uow.__aenter__.return_value.users
+    return mock_user_repo
+
+
+@pytest.fixture(name="mock_challenge_repo")
+def fixture_mock_challenge_repo(mock_uow: Any):
+    mock_challenge_repo = mock_uow.__aenter__.return_value.challenges
+    return mock_challenge_repo

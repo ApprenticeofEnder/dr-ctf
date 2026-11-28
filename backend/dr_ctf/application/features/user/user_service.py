@@ -14,3 +14,13 @@ class UserService:
             saved = await uow.users.save(user)
             await uow.commit()
             return saved
+
+    async def get_user_by_id(self, id: str) -> User | None:
+        async with self._uow as uow:
+            user = await uow.users.get_by_id(id=id)
+            return user
+
+    async def get_user_by_email(self, email: str) -> User | None:
+        async with self._uow as uow:
+            user = await uow.users.get_by_email(email=email)
+            return user
